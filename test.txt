@@ -1,0 +1,41 @@
+2:00 - 4:30 | Test 1: Data Entry & Smart Edit (Memory Check)
+Prompt: "Met Dr. Sameer today, it was an in-person meeting about Paracetamol API. He is very positive."
+
+
+Immediately Type: "Wait, change the meeting type to Virtual and the doctor's name to Dr. Sameer Shukla."
+
+Explanation: "Dekhiye, agent ne context yaad rakha. Isne purana interaction fetch kiya aur sirf 'Type' aur 'Name' update kiya. Ise kehte hain Stateful Persistence."
+
+4:30 - 6:30 | Test 2: Pure Data Entry (New User)
+Prompt: "Log a virtual meeting with Dr. Anjali Sharma regarding Raw Material procurement. Sentiment was neutral."
+
+Action: Form check karo aur Database table refresh karke dikhao.
+
+Explanation: "Yahan main dikha raha hoon ki system naye HCPs ko kitni smoothly handle karta hai. Backend mein log_interaction tool trigger hua aur SQL DB mein row insert ho gayi."
+
+6:30 - 9:30 | Test 3: Data Entry & Targeted Search
+Prompt 1: "Log an interaction with Dr. Rahul: In-person, discussed API pricing." (Log hone do).
+
+Prompt 2: "What was my last discussion with Dr. Rahul?"
+
+Action: Agent history se nikal kar answer dega.
+
+Explanation: "Yahan mera Search Tool kaam kar raha hai. AI database se Dr. Rahul ka specific record dhoond kar context provide kar raha hai. Ye 'Point-in-time' retrieval hai."
+
+9:30 - 12:30 | Test 4: The Delete & Re-Search (Verification)
+Prompt 1: "Actually, delete the record for Dr. Rahul."
+
+Action: Table se entry gayab hogi.
+
+Prompt 2 (The Boom): "Search for Dr. Rahul again."
+
+Expected Result: Agent bolega "No records found" ya "Record deleted".
+
+Explanation: "Ye sabse important validation hai. Maine Delete Tool call kiya, aur ab re-search karne par system confirm kar raha hai ki data exist nahi karta. Full CRUD lifecycle AI ke through."
+
+12:30 - 14:00 | Test 5: Follow-up & Full Registry
+Prompt: "Based on Dr. Sameer's positive feedback, generate a follow-up strategy and show me all the interaction logs we have."
+
+Action: Agent strategy steps (1, 2, 3) dega aur get_all_interactions trigger karke poori table refresh karega.
+
+Explanation: "Ab mera agent ek Business Analyst ki tarah kaam kar raha hai. Ye mujhe strategy bhi de raha hai aur poori interaction registry ka snapshot bhi.

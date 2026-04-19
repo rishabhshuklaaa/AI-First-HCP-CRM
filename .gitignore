@@ -1,0 +1,30 @@
+# Python (Backend)
+__pycache__/
+.env
+venv/
+env/
+*.pyc
+*.pyo
+*.pyd
+db.sqlite3
+.pytest_cache/
+
+# Node / React (Frontend)
+node_modules/
+dist/
+build/
+.DS_Store
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Databases
+*.sqlite3
+
+# Personal/Sensitive
+text.txt
+notes.txt
