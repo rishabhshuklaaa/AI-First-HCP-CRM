@@ -75,13 +75,13 @@ def search_hcp_history(hcp_name: str):
                 "sentiment": r.sentiment
             }
             data.append(entry)
-            # AI ke liye ek lamba string banao summarize karne ke liye
+       
             history_text += f"- {r.date_time}: {r.interaction_type} about {r.topic_discussion}. Outcome: {r.outcome}. Sentiment: {r.sentiment}\n"
 
         return {
             "action": "VIEW_DATA", 
             "data": data, 
-            "context_for_ai": history_text # AI isko dekh kar summary banayega
+            "context_for_ai": history_text 
         }
     finally:
         db.close()
